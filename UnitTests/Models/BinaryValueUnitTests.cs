@@ -255,5 +255,67 @@ namespace UnitTests.Models
         //    Assert.AreEqual(expectedDecimal, actualDecimal, "converting subtraction to decimal: 2147483648");
         //}
         #endregion
+
+        #region Multiply
+        [Test]
+        public void BinaryValue_MultiplyInBinaryFromStrings_inputOne_11111111_inputTwo_00000000_should_return_valid_binary()
+        {
+            // Arrange            
+            var inputOne = "11111111";
+            var inputTwo = "00000000";
+            var expectedBinary = "0";
+
+            // Act
+            var actualBinary = BinaryValue.MultiplyInBinaryFromStrings(inputOne, inputTwo);
+
+            // Assert
+            Assert.AreEqual(expectedBinary, actualBinary, "converting multiply to binary: 0");
+        }
+
+        [Test]
+        public void BinaryValue_MultiplyInBinaryFromStrings_inputOne_1000000000000000000000000000000_inputTwo_1_should_return_valid_binary()
+        {
+            // Arrange
+            var inputOne = "1000000000000000000000000000000";
+            var inputTwo = "10";
+            var expectedBinary = "10000000000000000000000000000000";
+
+            // Act
+            var actualBinary = BinaryValue.MultiplyInBinaryFromStrings(inputOne, inputTwo);
+
+            // Assert
+            Assert.AreEqual(expectedBinary, actualBinary, "converting multiply to binary: 10000000000000000000000000000000");
+        }
+
+        [Test]
+        public void BinaryValue_MultiplyInDecimalFromStrings_inputOne_11111111_inputTwo_00000000_should_return_valid_decimal()
+        {
+            // Arrange
+            var inputOne = "11111111";
+            var inputTwo = "00000000";
+            var expectedDecimal = 0;
+
+            // Act
+            var actualDecimal = BinaryValue.MultiplyInDecimalFromStrings(inputOne, inputTwo);
+
+            // Assert
+            Assert.AreEqual(expectedDecimal, actualDecimal, "converting multiply to decimal: 0");
+        }
+
+        [Test]
+        public void BinaryValue_MultiplyInDecimalFromStrings_inputOne_1000000000000000000000000000000_inputTwo_10_should_return_valid_binary()
+        {
+            // Arrange
+            var inputOne = "1000000000000000000000000000000";
+            var inputTwo = "10";
+            var expectedDecimal = "2147483648";
+
+            // Act
+            var actualDecimal = BinaryValue.MultiplyInDecimalFromStrings(inputOne, inputTwo);
+
+            // Assert
+            Assert.AreEqual(expectedDecimal, actualDecimal, "converting multiply to binary: 2147483648");
+        }
+        #endregion
     }
 }
