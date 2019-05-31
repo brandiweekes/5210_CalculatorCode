@@ -317,5 +317,67 @@ namespace UnitTests.Models
             Assert.AreEqual(expectedDecimal, actualDecimal, "converting multiply to binary: 2147483648");
         }
         #endregion
+
+        #region Division
+        [Test]
+        public void BinaryValue_DivisionInBinaryFromStrings_inputOne_10_inputTwo_10_should_return_valid_binary()
+        {
+            // Arrange            
+            var inputOne = "10";
+            var inputTwo = "10";
+            var expectedBinary = "1";
+
+            // Act
+            var actualBinary = BinaryValue.DivisionInBinaryFromStrings(inputOne, inputTwo);
+
+            // Assert
+            Assert.AreEqual(expectedBinary, actualBinary, "converting division to binary: 1");
+        }
+
+        [Test]
+        public void BinaryValue_DivisionInBinaryFromStrings_inputOne_1000000000000000000000000000000_inputTwo_10_should_return_valid_binary()
+        {
+            // Arrange
+            var inputOne = "10000000000000000000000000000000";
+            var inputTwo = "1";
+            var expectedBinary = "10000000000000000000000000000000";
+
+            // Act
+            var actualBinary = BinaryValue.DivisionInBinaryFromStrings(inputOne, inputTwo);
+
+            // Assert
+            Assert.AreEqual(expectedBinary, actualBinary, "converting multiply to binary: 10000000000000000000000000000000");
+        }
+
+        [Test]
+        public void BinaryValue_DivisionInDecimalFromStrings_inputOne_10_inputTwo_10_should_return_valid_decimal()
+        {
+            // Arrange
+            var inputOne = "10";
+            var inputTwo = "10";
+            var expectedDecimal = 1;
+
+            // Act
+            var actualDecimal = BinaryValue.DivisionInDecimalFromStrings(inputOne, inputTwo);
+
+            // Assert
+            Assert.AreEqual(expectedDecimal, actualDecimal, "converting division to decimal: 1");
+        }
+
+        [Test]
+        public void BinaryValue_DivisionInDecimalFromStrings_inputOne_10000000000000000000000000000000_inputTwo_10_should_return_valid_binary()
+        {
+            // Arrange
+            var inputOne = "10000000000000000000000000000000";
+            var inputTwo = "1";
+            var expectedDecimal = "2147483648";
+
+            // Act
+            var actualDecimal = BinaryValue.DivisionInDecimalFromStrings(inputOne, inputTwo);
+
+            // Assert
+            Assert.AreEqual(expectedDecimal, actualDecimal, "converting division to binary: 2147483648");
+        }
+        #endregion
     }
 }
