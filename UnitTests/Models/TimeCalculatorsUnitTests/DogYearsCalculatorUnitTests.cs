@@ -21,7 +21,8 @@ namespace UnitTests.Models
             var expected = model.InputOne * 7;
 
             //Act
-            var actual = model.CalculateResult();
+            model.Result = model.CalculateResult();
+            var actual = model.Result;
 
             //Assert note that Checking only for days accuracy
             Assert.AreEqual(actual, expected, "Some useful error message");
