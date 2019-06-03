@@ -42,7 +42,8 @@ namespace UnitTests.Models
             TimeSpan expected = model.InputOne - model.InputTwo;
 
             //Act
-            var actual = model.CalculateResultReverse();
+            model.Result = model.CalculateResultReverse();
+            var actual = model.Result;
 
             //Assert note that Checking only for days accuracy
             Assert.AreEqual(actual.Days, expected.Days, "Some useful error message");
