@@ -10,29 +10,30 @@ using CalculatorCode.Models;
 namespace UnitTests.Models
 {
     [TestFixture]
-    public class CatYearsCalculatorUnitTests
+    public class DogYearsCalculatorUnitTests
     {
         [Test]
-        public void CatYearsCalc_valid_input_should_pass()
+        public void DogYearsCalc_valid_input_should_pass()
         {
             //Arrange
-            var model = new CalculatorCode.Models.CatYearsCalculator();
-            model.InputOne = 12;
+            var model = new CalculatorCode.Models.DogYearsCalculator();
+            model.InputOne = 13;
             var expected = model.InputOne * 7;
 
             //Act
-            var actual = model.CalculateResult();
-            
+            model.Result = model.CalculateResult();
+            var actual = model.Result;
+
             //Assert note that Checking only for days accuracy
             Assert.AreEqual(actual, expected, "Some useful error message");
         }
 
         [Test]
-        public void CatYearCalc_valid_input_neg_year_should_pass()
+        public void DogYearCalc_valid_input_neg_year_should_pass()
         {
             //Arrange
-            var model = new CalculatorCode.Models.CatYearsCalculator();
-            model.InputOne = -22;
+            var model = new CalculatorCode.Models.DogYearsCalculator();
+            model.InputOne = -9;
             var expected = model.InputOne * 7;
 
             //Act
